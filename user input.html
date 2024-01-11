@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User input</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+            <div class="container-fluid">
+                <a href="/" class="navbar-brand">
+                    <img src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="Bootstrap Tamil" loading="lazy" class="d-inline-block align-top">
+                Bootstrap</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse  flex-row justify-content-end" id="navbarSupportedContent">
+                
+                <ul class="navbar-nav  ">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Link</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="">Coures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="">Contact</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="">user input</a>
+                    </li>
+                </ul>
+                <!--search
+                <form class="d-flex "  role="search" >
+                    <input class="form-control me-2 " style="width: 150px;" type="search" placeholder="Search"  aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>   -->
+              </div>
+            </div>
+          </nav>
+    </header>
+    <!-- End Header -->
+
+    <!-- get input from user-->
+        <!-- Content -->
+
+        <section class="bg-hero pt-2 pt-sm-5 text-white">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="mt-0 mt-sm-5">
+                    <img
+                      src="data:image/png;base64,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""
+                      alt=""
+                      width="240"
+                    />
+                    <h1>Have a tutorial request?</h1>
+                    <p class="leading">
+                      Share it with us! We will try to make it available for you.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-8 mb-5 text-dark">
+                  <div class="card">
+                    <div class="card-body">
+                      <form
+                        action=""
+                        method="POST"
+                        onsubmit="return false;"
+                        novalidate
+                      >
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="mb-2">
+                              <label for="name" class="form-label">Full Name</label>
+                              <input
+                                type="text"
+                                placeholder="Full name"
+                                class="form-control"
+                                required
+                              />
+                              <div class="invalid-feedback">
+                                Name field is required
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="mb-2">
+                              <label for="email" class="form-label">Email</label>
+                              <input
+                                type="email"
+                                placeholder="your@gmail.com"
+                                class="form-control"
+                                required
+                              />
+                              <div class="invalid-feedback">
+                                Enter the correct email
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="mb-2">
+                          <label for="" class="form-label">
+                            Previously, what did you learned from this channel?
+                          </label>
+      
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-check"required>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="courses_html5"
+                                  name="courses"
+                                  value="HTML5"
+                                />
+                                <label for="courses_html5" class="form-check-label">
+                                  HTML5 Course
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="courses_css"
+                                  name="courses"
+                                  value="CSS3"
+                                />
+                                <label for="courses_css" class="form-check-label">
+                                  CSS3 Course
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="courses"
+                                  name="courses[]"
+                                />
+                                <label for="courses" class="form-check-label">
+                                  CSS Flexbox
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="courses"
+                                  name="courses[]"
+                                />
+                                <label for="courses" class="form-check-label">
+                                  Bootstrap Course
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="courses"
+                                  name="courses[]"
+                                />
+                                <label for="courses" class="form-check-label">
+                                  JavaScript Course
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="courses"
+                                  name="courses[]"
+                                />
+                                <label for="courses" class="form-check-label">
+                                  Others
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="mb-2">
+                              <label for="isSubscribed" class=" form-label">
+                                Did you subscribe to the channel?
+                              </label>
+                              <div class="form-check">
+                                <input
+                                  type="radio"
+                                  name="isSubscribed"
+                                  id="subscribed_yes"
+                                  class="form-check-input"
+                                  required
+                                />
+      
+                                <label
+                                  for="subscribed_yes"
+                                  class="form-check-label "
+                                >
+                                  Yes
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input
+                                  type="radio"
+                                  name="isSubscribed"
+                                  id="subscribed_no"
+                                  class="form-check-input"
+                                />
+                                <label for="subscribed_no" class="form-check-label">
+                                  No
+                                </label>
+                              </div>
+                              <div class="mb-2 mt-3">
+                                <label for="year" class="form-check-label">
+                                  From which year are you with us?
+                                </label>
+                                <select
+                                  name="year"
+                                  id="year"
+                                  class="form-control"
+                                  required
+                                >
+                                  <option value="">--Choose--</option>
+                                  <!-- <option value="2019">2019</option>; -->
+                                </select>
+                                <div class="invalid-feedback" required>
+                                  This field is required
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="mb-2">
+                              <label for="tutorial" class="form-check-label">
+                                Do you have any tutorial requests?
+                              </label>
+                              <textarea
+                                name="tutorial"
+                                id="tutorial"
+                                rows="5"
+                                class="form-control"
+                                placeholder="Share with us"
+                                required
+                              ></textarea>
+                              <div class="invalid-feedback">
+                                Enter the description briefly!
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="mb-2">
+                          <label class="form-check-label ">
+                            Do you want to create a dedicated app for this?
+                          </label>
+                          <div class="form-inline">
+                            <div class="form-check">
+                              <input
+                                type="radio"
+                                class="form-check-input"
+                                id="dedicated_app"
+                                name="dedicated_app"
+                                value="yes"
+                                required
+                              />
+                              <label
+                                for="dedicated_app"
+                                class="form-check-label "
+                              >
+                                Yes
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                type="radio"
+                                class="form-check-input"
+                                id="dedicated_app_no"
+                                name="dedicated_app"
+                                value="no"
+                              />
+                              <label
+                                for="dedicated_app_no"
+                                class="form-check-label "
+                              >
+                                No
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                type="radio"
+                                class="form-check-input"
+                                id="dedicated_app_maybe"
+                                name="dedicated_app"
+                                value="maybe"
+                              />
+                              <label
+                                for="dedicated_app_maybe"
+                                class="form-check-label "
+                              >
+                                Maybe
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="mb-2">
+                          <button class="btn btn-primary btn-block">
+                            <i class="fa fa-external-link me-2"></i>
+                            Register
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+    <!-- 
+        <section class="bg-hero pt-0 pt-sm-5 text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="mt-sm-5">
+                <img
+                  src="data:image/png;base64,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"
+                  alt="image"
+                  width="240"
+                />
+                <h1>Have a tutorial request?</h1>
+                <p class="leading">
+                  Share it with us! We will try to make it available for you.
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-8 mb-5 text-dark">
+              <div class="card">
+                <div class="card-body">
+                  <form action="" method="POST" onsubmit="return false;" novalidate>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="mb-2">
+                          <label for="name">Full Name</label>
+                          <input
+                            type="text"
+                            placeholder="Full name"
+                            class="form-control"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Name field is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="mb-2">
+                          <label for="email">Email</label>
+                          <input
+                            type="email"
+                            placeholder="you@awesome.com"
+                            class="form-control"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Enter the correct email
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="mb-2">
+                      <label for="">
+                        Previously, what did you learned from this channel?
+                      </label>
+  
+                      <div class="">
+                        <div class="col-sm-6">
+                          <div class="form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="courses_html5"
+                              name="courses"
+                              value="HTML5"
+                            />
+                            <label for="courses_html5" class="form-check-label">
+                              HTML5 Course
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="courses_css"
+                              name="courses"
+                              value="CSS3"
+                            />
+                            <label for="courses_css" class="form-check-label">
+                              CSS3 Course
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="courses"
+                              name="courses[]"
+                            />
+                            <label for="courses" class="form-check-label">
+                              CSS Flexbox
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="courses"
+                              name="courses[]"
+                            />
+                            <label for="courses" class="form-check-label">
+                              Bootstrap Course
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="courses"
+                              name="courses[]"
+                            />
+                            <label for="courses" class="form-check-label">
+                              JavaScript Course
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="courses"
+                              name="courses[]"
+                            />
+                            <label for="courses" class="form-check-label">
+                              Others
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="">
+                      <div class="col-sm-6">
+                        <div class="mb-2">
+                          <label for="isSubscribed" class="me-4">
+                            Did you subscribe to the channel?
+                          </label>
+                          <div class="form-check">
+                            <input
+                              type="radio"
+                              name="isSubscribed"
+                              id="subscribed_yes"
+                              class="form-check-input"
+                              required
+                            />
+  
+                            <label
+                              for="subscribed_yes"
+                              class="form-check-label me-3"
+                            >
+                              Yes
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input
+                              type="radio"
+                              name="isSubscribed"
+                              id="subscribed_no"
+                              class="form-check-input"
+                            />
+                            <label for="subscribed_no" class="form-check-label">
+                              No
+                            </label>
+                          </div>
+                          <div class="mb-2 mt-3">
+                            <label for="year">
+                              From which year are you with us?
+                            </label>
+                            <select
+                              name="year"
+                              id="year"
+                              class="form-control"
+                              required
+                            >
+                              <option value="">--Choose--</option>
+                               <option value="2019">2019</option>;
+                            </select>
+                            <div class="invalid-feedback">
+                              This field is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="mb-2">
+                          <label for="tutorial">
+                            Do you have any tutorial requests?
+                          </label>
+                          <textarea
+                            name="tutorial"
+                            id="tutorial"
+                            rows="5"
+                            class="form-control"
+                            placeholder="Share with us"
+                            required
+                          ></textarea>
+                          <div class="invalid-feedback">
+                            Enter the description briefly!
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="mb-2">
+                      <label>
+                        Do you want to create a dedicated app for this?
+                      </label>
+                      <div class="form-inline">
+                        <div class="form-check">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            id="dedicated_app"
+                            name="dedicated_app"
+                            value="yes"
+                            required
+                          />
+                          <label
+                            for="dedicated_app"
+                            class="form-check-label me-3"
+                          >
+                            Yes
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            id="dedicated_app_no"
+                            name="dedicated_app"
+                            value="no"
+                          />
+                          <label
+                            for="dedicated_app_no"
+                            class="form-check-label me-3"
+                          >
+                            No
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            id="dedicated_app_maybe"
+                            name="dedicated_app"
+                            value="maybe"
+                          />
+                          <label
+                            for="dedicated_app_maybe"
+                            class="form-check-label me-3"
+                          >
+                            Maybe
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="mb-2">
+                      <button class="btn btn-primary btn-block">
+                        <i class="fa fa-external-link me-2"></i>
+                        Register
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>   -->
+  
+   
+     <!-- Bootstrap JS -->
+     <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+     <script src="./js/bootstrap.bundle.min.js"></script>
+     <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+
+    <script>
+      //Adding dynamic years
+      var yearDOM = document.getElementById("year");
+
+      var myOptions = '<option value="">-- Select Year --</option>';
+
+      var currentYear = new Date().getFullYear();
+
+      for (var i = 2014; i <= currentYear; i++) {
+        myOptions +=
+          '<option value="' + i + '"> ' + i + "</option>";
+      }
+
+      yearDOM.innerHTML = myOptions;
+
+      (function () {
+        "use strict";
+        window.addEventListener(
+          "load",
+          function () {
+            // Code
+            let forms = document.getElementsByTagName("form");
+            var validation = Array.prototype.filter.call(
+              forms,
+              function (form) {
+                form.addEventListener(
+                  "submit",
+                  function (event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    } else if (form.checkValidity() === true) {
+                      alert("The form was submitted");
+                    }
+                    form.classList.add("was-validated");
+                  },
+                  false
+                );
+              }
+            );
+          },
+          false
+        );
+      })();
+    </script>
+ </body>
+ </html>
